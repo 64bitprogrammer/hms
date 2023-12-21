@@ -1,9 +1,9 @@
 <?php
-    require_once 'credentials.php';
-    require_once 'Database.php';
-    require_once 'constants.php';
-    require_once 'functions.php';
+session_name("hmsv1.0");
+session_start();
+require_once 'Database.php';
+require_once 'functions.php';
 
-    // Create new connection object
-    $db = new Database();   
+// Create new connection object
+$db = new Database();
 ?>

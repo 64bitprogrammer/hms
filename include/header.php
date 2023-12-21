@@ -1,4 +1,5 @@
 <?php
+require_once "session.php";
 require_once "connect.php";
 /** 
  * code to add page level add-on js/css scripts 

@@ -1,4 +1,5 @@
 <?php
+require_once 'constants.php';
 // common library of functions to be used across projects
 
 /**
@@ -43,7 +44,5 @@ function get_status()
     }
 }
 
-
-
-
+require_once 'hms_functions.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
 require_once 'include/connect.php';
-session_start();
+// session_start();
 $page_title = "Dashboard";
 // set_status('success', 'Login Successful !');
 ?>

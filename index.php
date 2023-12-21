@@ -14,8 +14,6 @@ if (isset($_POST['btn_login'])) {
         $result = $db->select($query, $param);
 
         if (count($result) > 0) {
-            session_name("hmsv1.0");
-            session_start();
             set_status('success', 'Login Successful !');
             header("Location:dashboard.php");
         } else {
