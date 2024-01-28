@@ -14,6 +14,8 @@ if (isset($_POST['btn_login'])) {
         $result = $db->select($query, $param);
 
         if (count($result) > 0) {
+            $_SESSION['username'] = $username;
+            // $_SESSION['role'] = $result[0]['role'];
             set_status('success', 'Login Successful !');
             header("Location:dashboard.php");
         } else {
@@ -83,6 +85,10 @@ if (isset($_POST['btn_login'])) {
             return false;
         }
     }
+
+    $(document).ready(function () {
+        <?= get_status(); ?>    
+    });
 </script>
 
 <?php require_once "include/footer.php"; ?>

@@ -29,7 +29,8 @@ class Database
         try {
             $this->connection = new PDO("mysql:host=" . self::HOST . ";dbname=" . self::DATABASE, self::USERNAME, self::PASSWORD);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             die("Connection failed: " . $e->getMessage());
         }
     }
@@ -48,7 +49,8 @@ class Database
             $statement->execute($params);
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $result;
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
         }
     }
@@ -62,7 +64,8 @@ class Database
             $statement->execute($params);
             $rowCount = $statement->rowCount();
             return $rowCount;
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
         }
     }
@@ -76,21 +79,22 @@ class Database
             $statement->execute($params);
             $rowCount = $statement->rowCount();
             return $rowCount;
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
         }
     }
 
     public function insert($query, $params = [])
     {
-
         $this->connect();
         try {
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
             $rowCount = $statement->rowCount();
             return $rowCount;
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
         }
     }
@@ -108,7 +112,8 @@ class Database
             $this->connection->commit();
             $rowCount = $statement->rowCount();
             return $rowCount;
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             $this->connection->rollBack();
             die("Bulk insert failed: " . $e->getMessage());
         }
@@ -127,7 +132,8 @@ class Database
             $this->connection->commit();
             $rowCount = $statement->rowCount();
             return $rowCount;
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             $this->connection->rollBack();
             die("Bulk delete failed: " . $e->getMessage());
         }
@@ -146,7 +152,8 @@ class Database
             $this->connection->commit();
             $rowCount = $statement->rowCount();
             return $rowCount;
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             $this->connection->rollBack();
             die("Bulk update failed: " . $e->getMessage());
         }
