@@ -17,7 +17,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Restaurant</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Sales</a></li>
+            <li><a class="dropdown-item" href="restaurant_sale.php">Sales</a></li>
             <li><a class="dropdown-item" href="#">Purchase</a></li>
             <li><a class="dropdown-item" href="#">Voucher</a></li>
           </ul>
