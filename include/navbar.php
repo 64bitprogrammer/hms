@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Template</a>
+    <a class="navbar-brand" href="javascript:void(0)">HMS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,6 +25,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Lodge</a>
           <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Reservation</a></li>
             <li><a class="dropdown-item" href="#">Sales</a></li>
             <li><a class="dropdown-item" href="#">Purchase</a></li>
             <li><a class="dropdown-item" href="#">Voucher</a></li>
@@ -58,32 +59,33 @@
         </li>
       </ul>
 
-      <form class="d-flex mx-auto ">
+      <!-- <form class="d-flex mx-auto ">
         <select class="form-select form-select-sm" name="company_id" id="company_id"
           onchange="switchCompany(this.value)">
           <option value="1">Uday Bhuvan</option>
           <option value="2">New Uday Bhuvan</option>
           <option value="3">UB Cafe</option>
         </select>
-      </form>
+      </form> -->
 
       <form class="d-flex mx-auto ">
         <select class="form-select form-select-sm" name="company_id" id="company_id"
           onchange="switchBranch(this.value)">
-          <option value="1">Uday Bhuvan</option>
-          <option value="2">New Uday Bhuvan</option>
-          <option value="3">UB Cafe</option>
+          <option value="1">UB: Uday Bhuvan</option>
+          <option value="2">UB: RK Lodge</option>
+          <option value="3">NUB: New Uday Bhuvan</option>
+          <option value="3">UBCAFE: Uday Bhuvan Cafe</option>
         </select>
       </form>
 
       <ul class='navbar-nav'>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-            <strong> Username </strong>
+            <strong> <?= $_SESSION['username'] ?? "NA" ?> </strong>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a href="logout.php" class="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>
       </ul>

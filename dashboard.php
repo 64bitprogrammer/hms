@@ -17,7 +17,7 @@ $page_title = "Dashboard";
 <script>
 
     $(document).ready(function () {
-        // <?= get_status(); ?>
+        <?= get_status(); ?>
         console.log('<?= get_status(); ?>' + 'okay');
         console.log('xoxo');
     });
@@ -26,7 +26,7 @@ $page_title = "Dashboard";
         "debug": false,
         "newestOnTop": false,
         "progressBar": false,
-        "positionClass": "toast-bottom-right",
+        "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
         "showDuration": "300",

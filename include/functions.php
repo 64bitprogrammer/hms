@@ -21,7 +21,7 @@ function dump($var)
 function set_status($status_type, $message)
 {
     $_SESSION['status_type'] = $status_type;
-    $_SESSION['status_message'] = $message;
+    $_SESSION['status_message'] = $message;;
 }
 
 /**

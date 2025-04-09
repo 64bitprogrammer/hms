@@ -1,5 +1,6 @@
 <?php
-session_name("hmsv1.0");
+error_reporting(E_ALL);
+session_name("hms-v1");
 session_start();
 require_once 'Database.php';
 require_once 'functions.php';
