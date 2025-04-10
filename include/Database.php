@@ -1,4 +1,5 @@
 <?php
+
 require_once 'credentials.php';
 /**
  * Class Database to perform database operation

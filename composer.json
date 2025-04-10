@@ -1,0 +1,13 @@
+{
+    "name": "admin/hms",
+    "authors": [
+        {
+            "name": "Shrikrishna",
+            "email": "64bitprogrammer@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "App\\":"/"
+    }
+}
