@@ -12,6 +12,7 @@ require_once "connect.php";
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/toastr/toastr.min.css" rel="stylesheet" />
     <link href="css/default_style.css" rel="stylesheet" />
