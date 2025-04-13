@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Models\DailyRestaurantReport;
+use App\models\DailyRestaurantReport;
 use Exception;
 use InvalidArgumentException;
 

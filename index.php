@@ -1,4 +1,5 @@
 <?php
+use App\models\Database;
 require_once 'include/connect.php';
 $page_title = "Login Page";
 
@@ -8,7 +9,8 @@ if (isset($_POST['btn_login'])) {
     $password = $_POST['txt_password'];
 
     if ($username != "" && $password != "") {
-
+        $db = new Database();
+        var_dump($db);
         $query = "SELECT * FROM users WHERE username=? and password=? ";
         $param = [$username, $password];
         $result = $db->select($query, $param);

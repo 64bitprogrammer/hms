@@ -2,11 +2,14 @@
 
 namespace App\models;
 
+require_once '../vendor/autoload.php';
+
 class DailyRestaurantReport
 {
     private float $cash_in_hand_shortage;
     private float $reserve_cash_shortage;
     private $response = [ 'status'=>'NA'];
+    private $conn ;
 
     public function __construct(
         private string $date,
@@ -24,6 +27,7 @@ class DailyRestaurantReport
         private float $reserve_cash_closing_amount,
         private string $note
     ) {
+        $this->conn = new Database();
         echo "Object created success!";
         
     }
@@ -33,7 +37,7 @@ class DailyRestaurantReport
         $error_count = 0;
         foreach(get_object_vars($this) as $name => $value){
             
-            if($name != "response" && $name != 'date' && $name !='note'){
+            if($name != "response" && $name != 'date' && $name !='note' && $name != 'conn'){
 
                 if($value == "" || !is_numeric($value)){
                     $this->response['status'] = 'error';
@@ -72,6 +76,23 @@ class DailyRestaurantReport
             echo "<hr/>";
             var_dump($value);
         }   
+    }
+
+    public function checkReportForDateAlreadyExists(){
+
+        $query = "
+            SELECT count(*)
+            FROM daily_restaurant_report
+            WHERE date = '{$this->date}'
+        ";
+        $this->conn->select($query,[]);
+    }
+
+    public function saveDailyReport(){
+
+        $query = "
+
+        ";
     }
         
 }
