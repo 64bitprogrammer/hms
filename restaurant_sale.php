@@ -8,7 +8,7 @@
 
     <div class="container bg-light my-4">
 
-    <form id="restaurant_report_form" method="post">
+    <form action="controllers/DailyRestaurantReportController.php" name="restaurant_report_form" id="restaurant_report_form" method="post">
 
         <h1> Daily Restaurant Report </h1>
 
@@ -200,7 +200,7 @@
 
             <div class="d-grid gap-2 col-6 mx-auto">
                 
-                <button class="btn btn-primary btn-block" name="submit" type="submit" > Save </button>
+                <button class="btn btn-primary btn-block" name="btn_submit" type="submit" > Save </button>
 
             </div>
             
@@ -321,6 +321,9 @@
             date_error_obj.innerHTML = "Please select a valid date";
             is_form_valid = false;
         }
+        else{
+            is_form_valid = true;
+        }
 
         if(!is_form_valid){
             return;
@@ -328,12 +331,12 @@
         else{
             console.log('form submitted');
             //return;
-            document.getElementById('restaurant_sale_report').submit();
+            frm_restaurant_report_form.submit();
         }
 
     }
 
-    // Disable required attribute from all fields in a form.
+    // Disable required attribute from all fields in a form & set default values
     function disableRequiredAttributes(formId) {
         const form = document.getElementById(formId);
         if (!form) {
@@ -345,6 +348,14 @@
         const elements = form.elements;
         for (let i = 0; i < elements.length; i++) {
             if (elements[i].hasAttribute('required')) {
+
+                if(elements[i].id != "txt_date"){
+                    elements[i].value = 10;
+                }
+                else{
+                    console.log(elements[i]);
+                    elements[i].value = "2025-04-13";
+                }
                 elements[i].removeAttribute('required');
             }
         }

@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 class DailyRestaurantReport
 {
     private string $date;
@@ -13,9 +15,9 @@ class DailyRestaurantReport
     private float $total_petty_cash;
     private float $total_cash_in_hand;
 
-    public function __construct($date )
+    public function __construct( )
     {
-
+        echo "Object created success !";
     }
 
 
