@@ -6,7 +6,7 @@
 
 <section id="first_section">
 
-    <div class="container bg-light my-4">
+    <div class="container bg-light my-4 py-4">
 
     <form action="controllers/DailyRestaurantReportController.php" name="restaurant_report_form" id="restaurant_report_form" method="post">
 
@@ -153,9 +153,19 @@
             <div class="col-12 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_reserve_cash" placeholder="" required name="txt_reserve_cash"  oninput="formatCurrency(this)">
-                    <label for="txt_reserve_cash">Reserve Change</label>
-                    <div class="input-error" id="txt_reserve_cash_subtext"></div>
+                    <input type="text" class="form-control" id="txt_opening_reserve_cash" placeholder="" required name="txt_opening_reserve_cash"  oninput="formatCurrency(this)">
+                    <label for="txt_reserve_cash">Opening Reserve Cash</label>
+                    <div class="input-error" id="txt_opening_reserve_cash_subtext"></div>
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-3 col-lg-3">
+                
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txt_closing_reserve_cash" placeholder="" required name="txt_closing_reserve_cash"  oninput="formatCurrency(this)">
+                    <label for="txt_reserve_cash">Closing Reserve Cash</label>
+                    <div class="input-error" id="txt_closing_reserve_cash_subtext"></div>
                 </div>
 
             </div>
@@ -174,7 +184,7 @@
 
             </div>
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_security_deposit_collected_amount" required placeholder="" name="txt_security_deposit_collected_amount"  oninput="formatCurrency(this)">
@@ -184,7 +194,7 @@
 
             </div>
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_security_deposit_refund_amount" required placeholder="" name="txt_security_deposit_refund_amount"  oninput="formatCurrency(this)">
@@ -197,17 +207,24 @@
         </div>
 
         <div class="row">
+            <div class="col-12 col-md-6 col-lg-8">
+                <div class="form-floating">
+                    <textarea class="form-control" style="height:auto" rows="2"  id="txtar_note" name="txtar_note" placeholder=""></textarea>
+                    <label for="note">Note</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
 
             <div class="d-grid gap-2 col-6 mx-auto">
-                
                 <button class="btn btn-primary btn-block" name="btn_submit" type="submit" > Save </button>
-
             </div>
             
         </div>
-    
+        </form>
     </div>
-    </form>
+    
 </section>
 
 <script>
@@ -221,11 +238,13 @@
     const txt_swipe_collection_amount = document.getElementById('txt_swipe_collection_amount');
     const txt_cash_in_hand = document.getElementById('txt_cash_in_hand');
     const txt_petty_cash = document.getElementById('txt_petty_cash');
-    const txt_reserve_cash = document.getElementById('txt_reserve_cash');
+    const txt_opening_reserve_cash = document.getElementById('txt_opening_reserve_cash');
+    const txt_closing_reserve_cash = document.getElementById('txt_closing_reserve_cash');
     const txt_security_deposit_collected_amount = document.getElementById('txt_security_deposit_collected_amount');
     const txt_security_deposit_refund_amount = document.getElementById('txt_security_deposit_refund_amount');
     const txt_soiled_notes = document.getElementById('txt_soiled_notes');
     const frm_restaurant_report_form = document.getElementById('restaurant_report_form');
+    const txtar_note = document.getElementById('txtar_note');
     var is_form_valid = false;
 
    // window.onload = () => document.getElementById('txtCurrentDate').value = new Date().toLocaleDateString('en-GB').replace(/\//g, '-');
@@ -302,7 +321,7 @@
     function validateForm()
     {
         const required_but_zero_allowed_fields = ['txt_swipe_collection_amount','txt_soiled_notes','txt_advance_payments_received','txt_purchase_amount','txt_voucher_amount','txt_security_deposit_collected_amount','txt_security_deposit_refund_amount','txt_credit_bill_amount'];
-        const required_and_non_zero_positive = ['txt_upi_collection_amount','txt_cash_in_hand','txt_petty_cash','txt_reserve_cash','txt_sales_amount'];
+        const required_and_non_zero_positive = ['txt_upi_collection_amount','txt_cash_in_hand','txt_petty_cash','txt_closing_reserve_cash','txt_opening_reserve_cash','txt_sales_amount'];
 
         required_but_zero_allowed_fields.forEach((item)=>{
             //let a = document.getElementById(item);

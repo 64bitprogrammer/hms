@@ -37,9 +37,9 @@ if (isset($_POST['btn_login'])) {
 
                 <div class='row'>
 
-                    <div class='col-md-3'></div>
+                    <div class='col-12 col-md-3 col-lg-2'></div>
 
-                    <div class='col-md-6 '>
+                    <div class='col-12 col-md-6  col-lg-8 '>
                         <h1 class="text-center"> Login </h1>
                         <form class="mt-4" method="post" name='login_form' id="login_form"
                             onsubmit="return validate_login_form()">
@@ -62,7 +62,7 @@ if (isset($_POST['btn_login'])) {
                         </form>
                     </div>
 
-                    <div class='col-md-3'></div>
+                    <div class='col-12 wcol-md-3  col-lg-2'></div>
 
                 </div>
             </div>

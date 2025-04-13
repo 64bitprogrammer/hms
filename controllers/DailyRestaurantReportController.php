@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Models\DailyRestaurantReport;
+use Exception;
+use InvalidArgumentException;
 
 // Enable full error reporting
 error_reporting(E_ALL);
@@ -16,10 +18,55 @@ require_once realpath("../vendor/autoload.php");
 
 // Handle POST request
 if (isset($_POST['txt_date'])) {
+    
     dump($_POST);
+    $data = [];
+    foreach($_POST as $key => $value){
 
-    $obj = new DailyRestaurantReport();
+        if($key != 'txt_date' && $key !=  'txtar_note'){
+            $data[$key] = floatval($value);
+        }
+        else{
+            $data[$key] = $value;
+        }
 
-    echo "Object created";
-    dump($obj);
+    }
+    // Add validation for received data
+
+    try {
+        // new object created
+        $report = new DailyRestaurantReport(
+            $data['txt_date'],
+            $data['txt_sales_amount'],
+            $data['txt_credit_bill_amount'],
+            $data['txt_purchase_amount'],
+            $data['txt_voucher_amount'],
+            $data['txt_security_deposit_collected_amount'],
+            $data['txt_security_deposit_refund_amount'],
+            $data['txt_upi_collection_amount'],
+            $data['txt_swipe_collection_amount'],
+            $data['txt_petty_cash'],
+            $data['txt_cash_in_hand'],
+            $data['txt_opening_reserve_cash'],
+            $data['txt_closing_reserve_cash'],
+            $data['txtar_note']);
+        
+        $response = $report->validateData();
+        
+        if($response['status'] != 'success'){
+            echo "PROBLEM ->";
+            $report->printObject();
+            print_r($response);
+        } 
+        else{
+            echo "Data validated successfully !";
+            // $_SESSION['errors'] = 
+            // header("Location: ../restaurant_sale.php");
+        }
+    }
+
+    catch(Exception $e){
+        echo "Validation Error: ". $e->getCode() . " -- ".$e->getMessage();
+    }
+
 }
