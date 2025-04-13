@@ -1,21 +1,25 @@
 <?php
+
 namespace App\Controller;
+
+use App\Models\DailyRestaurantReport;
+
+// Enable full error reporting
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// require_once realpath('../Models/DailyRestaurantReport.php');
-// use App\Models\DailyRestaurantReport\DailyRestaurantReport;
+// Include custom helper functions (if needed)
+require_once realpath("../include/functions.php");
 
-
-// var_dump($_REQUEST);
-
+// Include Composer autoload
 require_once realpath("../vendor/autoload.php");
 
-if(isset($_POST['txt_date'])){
-    
-    // dump($_POST);
+// Handle POST request
+if (isset($_POST['txt_date'])) {
+    dump($_POST);
 
-    $obj = new \App\Models\DailyRestaurantReport();
+    $obj = new DailyRestaurantReport();
 
-    echo "object created";
-    // dump($obj);
+    echo "Object created";
+    dump($obj);
 }
