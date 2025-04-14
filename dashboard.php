@@ -5,6 +5,9 @@ $page_title = "Dashboard";
 ?>
 <?php require_once "include/header.php"; ?>
 <?php require_once "include/navbar.php"; ?>
+<?php
+    print_r($_SESSION);
+?>
 
 <section id="first_section">
 

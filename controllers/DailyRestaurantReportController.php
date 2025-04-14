@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Controller;
+require_once __DIR__ . '/../include/session.php';
+
+// print_r($_SESSION);
 
 use App\models\DailyRestaurantReport;
 use Exception;
@@ -11,7 +14,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Include custom helper functions (if needed)
-require_once realpath("../include/functions.php");
+// require_once realpath("../include/functions.php");
 
 // Include Composer autoload
 require_once realpath("../vendor/autoload.php");
@@ -19,12 +22,12 @@ require_once realpath("../vendor/autoload.php");
 // Handle POST request
 if (isset($_POST['txt_date'])) {
     
-    dump($_POST);
+    // dump($_POST);
     $data = [];
     foreach($_POST as $key => $value){
 
         if($key != 'txt_date' && $key !=  'txtar_note'){
-            $data[$key] = floatval($value);
+            $data[$key] = floatval(csvToNumber($value));
         }
         else{
             $data[$key] = $value;
@@ -39,6 +42,8 @@ if (isset($_POST['txt_date'])) {
             $data['txt_date'],
             $data['txt_sales_amount'],
             $data['txt_credit_bill_amount'],
+            $data['txt_advance_payments_received'],
+            $data['txt_soiled_notes'],
             $data['txt_purchase_amount'],
             $data['txt_voucher_amount'],
             $data['txt_security_deposit_collected_amount'],
@@ -59,7 +64,10 @@ if (isset($_POST['txt_date'])) {
             print_r($response);
         } 
         else{
+            $report->checkReportForDateAlreadyExists();
             echo "Data validated successfully !";
+
+            $report->saveDailyReport();
             // $_SESSION['errors'] = 
             // header("Location: ../restaurant_sale.php");
         }
@@ -69,4 +77,8 @@ if (isset($_POST['txt_date'])) {
         echo "Validation Error: ". $e->getCode() . " -- ".$e->getMessage();
     }
 
+}
+
+function csvToNumber($str){
+    return floatval(str_replace(',', '', $str));
 }

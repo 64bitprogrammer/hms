@@ -1,8 +1,8 @@
-<?php
-
-?>
 <?php require_once "include/header.php"; ?>
 <?php require_once "include/navbar.php"; ?>
+<?php
+    // print_r($_SESSION);
+?>
 
 <section id="first_section">
 
@@ -247,7 +247,7 @@
     const txtar_note = document.getElementById('txtar_note');
     var is_form_valid = false;
 
-   // window.onload = () => document.getElementById('txtCurrentDate').value = new Date().toLocaleDateString('en-GB').replace(/\//g, '-');
+//    window.onload = () => document.getElementById('txt_date').value = new Date().toLocaleDateString('en-GB');
    function formatCurrency(input) 
    {
       let value = input.value.replace(/[^0-9.]/g, ''); // Remove non-numeric
@@ -373,7 +373,10 @@
                 }
                 else{
                     console.log(elements[i]);
-                    elements[i].value = "2025-04-13";
+                    // const currentDate = new Date().toLocaleDateString('en-CA');
+                    const currentDate =new Date().toISOString().split('T')[0];
+                    console.log(currentDate);
+                    elements[i].value = currentDate;
                 }
                 elements[i].removeAttribute('required');
             }

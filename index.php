@@ -17,6 +17,8 @@ if (isset($_POST['btn_login'])) {
 
         if (count($result) > 0) {
             $_SESSION['username'] = $username;
+            $_SESSION['user_id'] = $result[0]['id'];
+            // print_r($_SESSION);exit;
             // $_SESSION['role'] = $result[0]['role'];
             set_status('success', 'Login Successful !');
             header("Location:dashboard.php");
