@@ -47,7 +47,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Banquet</a></li>
             <li><a class="dropdown-item" href="#">Lodge</a></li>
-            <li><a class="dropdown-item" href="#">Restaurant</a></li>
+            <li><a class="dropdown-item" href="report_restaurant.php">Restaurant</a></li>
             <li><a class="dropdown-item" href="#">Payroll</a></li>
           </ul>
         </li>
