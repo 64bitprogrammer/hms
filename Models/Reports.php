@@ -45,14 +45,14 @@ class Reports
             $html .= "
                 <tr>
                     <td> ".date("d-m-Y", strtotime($rec['date']))." </td>
-                    <td> &#8377; {$rec['sale_amount']} </td>
-                    <td> &#8377; ". $rec['purchase_amount'] + $rec['voucher_amount'] ." </td>
-                    <td> &#8377; {$rec['upi_collection_amount']} </td>
-                    <td> &#8377; {$rec['swipe_collection_amount']} </td>
-                    <td> &#8377; {$rec['petty_cash_amount']} </td>
-                    <td> &#8377; {$rec['cash_in_hand_amount']} </td>
-                    <td> &#8377; <span class='$cash_in_hand_format'> {$rec['cash_in_hand_shortage']} </span> </td>
-                    <td> &#8377; <span class='$reserve_cash_format'> {$rec['reserve_cash_shortage']} </span> </td>
+                    <td> &#8377;{$rec['sale_amount']} </td>
+                    <td> &#8377;". $rec['purchase_amount'] + $rec['voucher_amount'] ." </td>
+                    <td> &#8377;{$rec['upi_collection_amount']} </td>
+                    <td> &#8377;{$rec['swipe_collection_amount']} </td>
+                    <td> &#8377;{$rec['petty_cash_amount']} </td>
+                    <td> &#8377;{$rec['cash_in_hand_amount']} </td>
+                    <td> &#8377;<span class='$cash_in_hand_format'>{$rec['cash_in_hand_shortage']} </span> </td>
+                    <td> &#8377;<span class='$reserve_cash_format'>{$rec['reserve_cash_shortage']} </span> </td>
                 </tr>
             ";
         }

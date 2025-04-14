@@ -44,7 +44,7 @@ function selectYear($year) {
                     <!-- Content can go here if needed -->
                 </div>
 
-                <div class="col-8 col-md-4 col-lg-2">
+                <div class="col-6 col-md-4 col-lg-2">
                     <div class="form-floating mt-3">
                         <select class="form-select" id="drp_month" name="drp_month">
                             <option value="01" <?=selectMonth('01')?>>January</option>
@@ -64,7 +64,7 @@ function selectYear($year) {
                     </div>
                 </div>
 
-                <div class="col-4 col-md-3 col-lg-2">
+                <div class="col-6 col-md-3 col-lg-2">
                     <div class="form-floating mt-3">
                         <select class="form-select" id="drp_year" name="drp_year">
                             <option value="2025" <?=selectYear('2025')?>>2025</option>
@@ -76,6 +76,7 @@ function selectYear($year) {
         </div> <!-- .card-body -->
     </div> <!-- .card -->
 
+    <div class='table-responsive'>
     <table id='restaurant_report_table' class="table table-bordered report-table">
 
         <thead>
@@ -100,6 +101,7 @@ function selectYear($year) {
 
         </tbody>
     </table>
+    </div>
 </div> <!-- .container -->
 
 
