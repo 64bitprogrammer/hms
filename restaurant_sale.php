@@ -43,7 +43,7 @@
             <div class="col-12 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_credit_bill_amount" required placeholder="" name="txt_credit_bill_amount"  oninput="formatCurrency(this)">
+                    <input type="text" class="form-control" id="txt_credit_bill_amount" required value="0" placeholder="" name="txt_credit_bill_amount"  oninput="formatCurrency(this)">
                     <label for="txt_credit_bill_amount">Credit Bill Amount</label>
                     <div class="input-error" id= "txt_credit_bill_amount_subtext"></div>
                 </div>
@@ -53,7 +53,7 @@
             <div class="col-12 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_advance_payments_received" required placeholder="" name="txt_advance_payments_received"  oninput="formatCurrency(this)">
+                    <input type="text" class="form-control" id="txt_advance_payments_received" required  value="0"  placeholder="" name="txt_advance_payments_received"  oninput="formatCurrency(this)">
                     <label for="txt_advance_payments_received">Advance Receipts</label>
                     <div class="input-error" id= "txt_advance_payments_received_subtext"></div>
                 </div>
@@ -112,7 +112,7 @@
             <div class="col-12 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_swipe_collection_amount" placeholder="" required name="txt_swipe_collection_amount"  oninput="formatCurrency(this)">
+                    <input type="text" class="form-control" id="txt_swipe_collection_amount" placeholder=""  value="0"  required name="txt_swipe_collection_amount"  oninput="formatCurrency(this)">
                     <label for="txt_swipe_collection_amount">Card Swipe Amount</label>
                     <div class="input-error" id= "txt_swipe_collection_amount_subtext"></div>
                 </div>
@@ -187,7 +187,7 @@
             <div class="col-12 col-md-4 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_security_deposit_collected_amount" required placeholder="" name="txt_security_deposit_collected_amount"  oninput="formatCurrency(this)">
+                    <input type="text" class="form-control" id="txt_security_deposit_collected_amount"  value="0"  required placeholder="" name="txt_security_deposit_collected_amount"  oninput="formatCurrency(this)">
                     <label for="txt_security_deposit_collected_amount">Security Deposit Collection</label>
                     <div class="input-error" id="txt_security_deposit_collected_amount_subtext"></div>
                 </div>
@@ -197,7 +197,7 @@
             <div class="col-12 col-md-4 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_security_deposit_refund_amount" required placeholder="" name="txt_security_deposit_refund_amount"  oninput="formatCurrency(this)">
+                    <input type="text" class="form-control" id="txt_security_deposit_refund_amount"  value="0" required placeholder="" name="txt_security_deposit_refund_amount"  oninput="formatCurrency(this)">
                     <label for="txt_security_deposit_refund_amount">Security Deposit Refund</label>
                     <div class="input-error" id="txt_security_deposit_refund_amount_subtext"></div>
                 </div>
@@ -228,7 +228,7 @@
 </section>
 
 <script>
-    disableRequiredAttributes('restaurant_report_form');
+    //disableRequiredAttributes('restaurant_report_form');
     const txt_date = document.getElementById('txt_date');
     const txt_sales_amount = document.getElementById('txt_sales_amount');
     const txt_credit_bill_amount = document.getElementById('txt_credit_bill_amount');
@@ -247,7 +247,21 @@
     const txtar_note = document.getElementById('txtar_note');
     var is_form_valid = false;
 
-//    window.onload = () => document.getElementById('txt_date').value = new Date().toLocaleDateString('en-GB');
+    <?php
+        if(isset($_SESSION['operation_status'])){
+            // echo "/* ".print_r($_SESSION['operation_status'])."*/";
+            
+            if($_SESSION['operation_status']['status']== true){
+                echo "toastr.success('".$_SESSION['operation_status']['msg']."')";
+            }
+            else{
+                echo "toastr.error('".$_SESSION['operation_status']['msg']."')";
+            }
+            unset($_SESSION['operation_status']);
+        }
+    ?>
+
+   window.onload = () => document.getElementById('txt_date').value = new Date().toISOString().split('T')[0];;
    function formatCurrency(input) 
    {
       let value = input.value.replace(/[^0-9.]/g, ''); // Remove non-numeric

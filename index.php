@@ -10,7 +10,7 @@ if (isset($_POST['btn_login'])) {
 
     if ($username != "" && $password != "") {
         $db = new Database();
-        var_dump($db);
+        // var_dump($db);
         $query = "SELECT * FROM users WHERE username=? and password=? ";
         $param = [$username, $password];
         $result = $db->select($query, $param);

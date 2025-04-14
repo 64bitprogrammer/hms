@@ -67,9 +67,14 @@ if (isset($_POST['txt_date'])) {
             $report->checkReportForDateAlreadyExists();
             echo "Data validated successfully !";
 
-            $report->saveDailyReport();
-            // $_SESSION['errors'] = 
-            // header("Location: ../restaurant_sale.php");
+            $status = $report->saveDailyReport();
+            $msg = $status == true ? "Report saved successfully !" : "Error saving report !";
+            $result = [
+                'status' => $status,
+                'msg' => $msg
+            ];
+            $_SESSION['operation_status'] = $result;
+            header("Location: ../restaurant_sale.php");
         }
     }
 

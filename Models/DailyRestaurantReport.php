@@ -258,8 +258,9 @@ class DailyRestaurantReport
         $result = $this->conn->insert($query,$params);
 
         if($result > 0){
-            echo "Insert successful !";
+            return true;
         }
+        return false;
     }
         
 }
