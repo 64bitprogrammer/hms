@@ -92,14 +92,11 @@ function selectYear($year) {
                 <th> Reserve Cash Shortage </th>
             </tr>
         </thead>
-            <?php
+        <?php
                 $report = new Reports();
 
                 echo $report->getMonthlyRestaurantSalesReport(date('m'),date('Y'));
-            ?>
-        <tbody>
-
-        </tbody>
+        ?>
     </table>
     </div>
 </div> <!-- .container -->
