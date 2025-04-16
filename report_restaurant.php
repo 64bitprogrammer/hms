@@ -79,7 +79,7 @@ function selectYear($year) {
     <div class='table-responsive'>
     <table id='restaurant_report_table' class="table table-bordered report-table">
 
-        <thead>
+        <thead style='font-size:11pt;'>
             <tr>
                 <th> Date</th>
                 <th> Sale </th>

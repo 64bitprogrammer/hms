@@ -36,8 +36,8 @@ if (isset($_POST['btn_login'])) {
 
     <div class="container-fluid">
         <div class="row mt-5 pt-5">
-            <div class="col"></div>
-            <div class="col">
+            <div class="col-2 col-md-3 col-lg-4"></div>
+            <div class="col-8 col-md-6 col-lg-4">
 
                 <div class='row'>
 
@@ -60,17 +60,17 @@ if (isset($_POST['btn_login'])) {
                                 <label for=''>Password</label>
                             </div>
 
-                            <button class='btn btn-primary mt-3' type='submit' name='btn_login'
+                            <button class='btn btn-primary mt-3 ' type='submit' name='btn_login'
                                 id='btn_login'>Login</button>
 
                         </form>
                     </div>
 
-                    <div class='col-12 wcol-md-3  col-lg-2'></div>
+                    <div class='col-12 col-md-3 col-lg-2'></div>
 
                 </div>
             </div>
-            <div class="col"></div>
+            <div class="col-2 col-md-3 col-lg-4"></div>
         </div>
     </div>
 

@@ -73,9 +73,9 @@ class Reports
         // Totals
         $html .= "
                 </tbody>
-                <tfoot>
+                <tfoot style=';'>
                 <tr>
-                    <td class='text-center'> <b> TOTAL </b>  </td>
+                    <td class='text-center'>  TOTAL   </td>
                     <td> ".$this->formatCurrency($total_sales)." </td>
                     <td> ".$this->formatCurrency( $total_expenses) ." </td>
                     <td> ".$this->formatCurrency($total_upi)." </td>
