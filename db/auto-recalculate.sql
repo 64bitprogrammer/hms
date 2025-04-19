@@ -19,4 +19,4 @@ SET
     ),
   
   current.reserve_cash_shortage = 
-    IFNULL(prev.closing_reserve_cash_amount - current.opening_reserve_cash_amount, 0);
+    IFNULL(current.opening_reserve_cash_amount - prev.closing_reserve_cash_amount, 0);

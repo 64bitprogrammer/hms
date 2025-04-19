@@ -202,7 +202,7 @@ class DailyRestaurantReport
         if ($prev_day_closing_reserve_cash === 0) {
             $this->reserve_cash_shortage = 0;
         } else {
-            $this->reserve_cash_shortage = $prev_day_closing_reserve_cash - $this->opening_reserve_cash_amount;
+            $this->reserve_cash_shortage =  $this->opening_reserve_cash_amount - $prev_day_closing_reserve_cash ;
         }
 
         $this->printObject();
