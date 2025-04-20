@@ -14,7 +14,7 @@
 
         <div class="row">
             
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="date" class="form-control datepicker" id="txt_date" placeholder="" name="txt_date" required >
@@ -28,7 +28,7 @@
                 <!-- Empty space will be here 
             </div> -->
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_sales_amount" required placeholder="" name="txt_sales_amount" oninput="formatCurrency(this)">
@@ -38,29 +38,18 @@
 
             </div>
 
-            <div class="col-md-6 offset-md-6"></div>
-
-            <div class="col-12 col-md-3 col-lg-3">
-                
+            <div class="col-6 col-md-3 col-lg-3">
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_credit_bill_amount" required value="0" placeholder="" name="txt_credit_bill_amount"  oninput="formatCurrency(this)">
-                    <label for="txt_credit_bill_amount">Credit Bill Amount</label>
-                    <div class="input-error" id= "txt_credit_bill_amount_subtext"></div>
+                    <input type="text" class="form-control" id="txt_cash_in_hand" placeholder="" required name="txt_cash_in_hand"  oninput="formatCurrency(this)">
+                    <label for="txt_cash_in_hand">Cash in Hand</label>
+                    <div class="input-error" id="txt_cash_in_hand_subtext"></div>
                 </div>
-
             </div>
 
-            <div class="col-12 col-md-3 col-lg-3">
-                
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_advance_payments_received" required  value="0"  placeholder="" name="txt_advance_payments_received"  oninput="formatCurrency(this)">
-                    <label for="txt_advance_payments_received">Advance Receipts</label>
-                    <div class="input-error" id= "txt_advance_payments_received_subtext"></div>
-                </div>
+            <div class=" offset-md-3"></div>
+            
 
-            </div>
-
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_purchase_amount" required placeholder="" name="txt_purchase_amount"  oninput="formatCurrency(this)">
@@ -70,7 +59,7 @@
 
             </div>
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_voucher_amount" required placeholder="" name="txt_voucher_amount"  oninput="formatCurrency(this)">
@@ -84,7 +73,7 @@
 
         <div class="row">
             
-            <!-- <div class="col-12 col-md-3 col-lg-3">
+            <!-- <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mt-3">
                     <select class="form-select" id="selUPIWallet" name="selUPIWallet">
@@ -99,7 +88,7 @@
 
             </div> -->
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_upi_collection_amount"  required placeholder="" name="txt_upi_collection_amount"  oninput="formatCurrency(this)">
@@ -109,7 +98,7 @@
 
             </div>
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_swipe_collection_amount" placeholder=""  value="0"  required name="txt_swipe_collection_amount"  oninput="formatCurrency(this)">
@@ -119,28 +108,17 @@
 
             </div>
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
             </div>
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
             </div>
 
         </div>
 
         <div class="row">
-
-
-            <div class="col-12 col-md-3 col-lg-3">
-                
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txt_cash_in_hand" placeholder="" required name="txt_cash_in_hand"  oninput="formatCurrency(this)">
-                    <label for="txt_cash_in_hand">Cash in Hand</label>
-                    <div class="input-error" id="txt_cash_in_hand_subtext"></div>
-                </div>
-
-            </div>
             
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_petty_cash" placeholder="" required name="txt_petty_cash"  oninput="formatCurrency(this)">
@@ -150,7 +128,7 @@
 
             </div>
           
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_opening_reserve_cash" placeholder="" required name="txt_opening_reserve_cash"  oninput="formatCurrency(this)">
@@ -160,7 +138,7 @@
 
             </div>
 
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_closing_reserve_cash" placeholder="" required name="txt_closing_reserve_cash"  oninput="formatCurrency(this)">
@@ -172,9 +150,31 @@
             
         </div>
 
+        <div class='row'>
+        <div class="col-6 col-md-3 col-lg-3">
+                
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txt_credit_bill_amount" required value="0" placeholder="" name="txt_credit_bill_amount"  oninput="formatCurrency(this)">
+                    <label for="txt_credit_bill_amount">Credit Bill Amount</label>
+                    <div class="input-error" id= "txt_credit_bill_amount_subtext"></div>
+                </div>
+
+            </div>
+
+            <div class="col-6 col-md-3 col-lg-3">
+                
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txt_advance_payments_received" required  value="0"  placeholder="" name="txt_advance_payments_received"  oninput="formatCurrency(this)">
+                    <label for="txt_advance_payments_received">Advance Receipts</label>
+                    <div class="input-error" id= "txt_advance_payments_received_subtext"></div>
+                </div>
+
+            </div>
+        </div>
+
         <div class="row">
 
-        <div class="col-12 col-md-3 col-lg-3">
+        <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_soiled_notes" required placeholder="" name="txt_soiled_notes"  oninput="formatCurrency(this)">
@@ -184,7 +184,7 @@
 
             </div>
 
-            <div class="col-12 col-md-4 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_security_deposit_collected_amount"  value="0"  required placeholder="" name="txt_security_deposit_collected_amount"  oninput="formatCurrency(this)">
@@ -194,7 +194,7 @@
 
             </div>
 
-            <div class="col-12 col-md-4 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="txt_security_deposit_refund_amount"  value="0" required placeholder="" name="txt_security_deposit_refund_amount"  oninput="formatCurrency(this)">
