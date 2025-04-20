@@ -29,9 +29,9 @@ class DailyRestaurantReport
         private float $closing_reserve_cash_amount,
         private string $note
     ) {
-        print_r($this);
+        // print_r($this);
         $this->conn = new Database();
-        echo "Object created success!";
+        // echo "Object created success!";
         
     }
 
@@ -105,10 +105,11 @@ class DailyRestaurantReport
         // var_dump($records_count);
         // echo "</pre>";
         if($records_count[0]['count'] > 0 ){
-            echo "WTF Thats not right";
+            // echo "Record for the day already exists !";
+            return true;
         }
         else{
-            echo "alls good macha ";
+            return false;
         }
     }
 
@@ -140,7 +141,7 @@ class DailyRestaurantReport
         $query = "  SELECT petty_cash_amount
                 FROM daily_restaurant_report
                 WHERE date = '$previous_date' ";
-                echo $query;
+        // echo $query;
         $result = $this->conn->select($query);
 
         if(count($result)>0){
@@ -158,7 +159,7 @@ class DailyRestaurantReport
         // Formula: Sales - Purchase - Expense - Soiled Notes - Credit Bills - UPI - Swipe - Security Deposit Refund
         //          + Security Deposit Collected - Petty Cash Difference
         $prev_day_petty_cash = $this->getPreviousDayPettyCash();
-        echo 'Previous day petty cash = '.$prev_day_petty_cash . '<Br/>';
+        // echo 'Previous day petty cash = '.$prev_day_petty_cash . '<Br/>';
         $difference = 0;
         if ($prev_day_petty_cash == 0) {
             $difference = 0;
@@ -168,15 +169,15 @@ class DailyRestaurantReport
 
 
         // echo each operand to verify its value
-        echo "<br/>Sales Amount: " . $this->sales_amount . "<br>";
-        echo "Purchase Amount: " . $this->purchase_amount . "<br>";
-        echo "Voucher Amount: " . $this->voucher_amount . "<br>";
-        echo "Upi Collection Amount: " . $this->upi_collection_amount . "<br>";
-        echo "Swipe Collection Amount: " . $this->swipe_colllection_amount . "<br>";
-        echo "Security Deposit Refunded Amount: " . $this->security_deposit_refunded_amount . "<br>";
-        echo "Security Deposit Collected Amount: " . $this->security_deposit_collected_amount . "<br>";
-        echo "Difference: " . $difference . "<br>";
-        echo "Cash In Hand Amount: " . $this->cash_in_hand_amount . "<br>";
+        // echo "<br/>Sales Amount: " . $this->sales_amount . "<br>";
+        // echo "Purchase Amount: " . $this->purchase_amount . "<br>";
+        // echo "Voucher Amount: " . $this->voucher_amount . "<br>";
+        // echo "Upi Collection Amount: " . $this->upi_collection_amount . "<br>";
+        // echo "Swipe Collection Amount: " . $this->swipe_colllection_amount . "<br>";
+        // echo "Security Deposit Refunded Amount: " . $this->security_deposit_refunded_amount . "<br>";
+        // echo "Security Deposit Collected Amount: " . $this->security_deposit_collected_amount . "<br>";
+        // echo "Difference: " . $difference . "<br>";
+        // echo "Cash In Hand Amount: " . $this->cash_in_hand_amount . "<br>";
 
         // Perform the calculation and assign to the variable
         $this->cash_in_hand_shortage = $this->cash_in_hand_amount 
@@ -193,7 +194,7 @@ class DailyRestaurantReport
             + ($difference));
 
         // Echo the result
-        echo "Calculated Cash In Hand Shortage: " . $this->cash_in_hand_shortage . "<br>";
+        // echo "Calculated Cash In Hand Shortage: " . $this->cash_in_hand_shortage . "<br>";
         
         // Calculate Reserve Cash Shortage
         // Formula: Previous Day Closing Reserve Cash - Current Opening Reserve Cash
@@ -205,7 +206,7 @@ class DailyRestaurantReport
             $this->reserve_cash_shortage =  $this->opening_reserve_cash_amount - $prev_day_closing_reserve_cash ;
         }
 
-        $this->printObject();
+        // $this->printObject();
 
         $query = "
             INSERT INTO daily_restaurant_report

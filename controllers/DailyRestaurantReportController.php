@@ -59,23 +59,32 @@ if (isset($_POST['txt_date'])) {
         $response = $report->validateData();
         
         if($response['status'] != 'success'){
-            echo "PROBLEM ->";
-            $report->printObject();
-            print_r($response);
+            // echo "PROBLEM ->";
+            // $report->printObject();
+            // print_r($response);
+            $status = false;
+            $msg = "One or more filed contains invalid input";
+
         } 
         else{
-            $report->checkReportForDateAlreadyExists();
-            echo "Data validated successfully !";
+            if($report->checkReportForDateAlreadyExists()){
+                $status = false;
+                $msg = 'Record for date already exists !';
+            }
+            else{
+                $status = $report->saveDailyReport();
+                $msg = $status == true ? "Report saved successfully !" : "Error saving report !";
+                
+            }
+            // echo "Data validated successfully !";
 
-            $status = $report->saveDailyReport();
-            $msg = $status == true ? "Report saved successfully !" : "Error saving report !";
             $result = [
                 'status' => $status,
                 'msg' => $msg
             ];
-            $_SESSION['operation_status'] = $result;
-            header("Location: ../restaurant_sale.php");
         }
+        $_SESSION['operation_status'] = $result;
+        header("Location: ../restaurant_sale.php");
     }
 
     catch(Exception $e){
