@@ -1,4 +1,4 @@
-/* SQL query to auto recalculate daily shortages in cash */
+/* SQL query to auto recalculate daily shortages in cash for a specific date */
 UPDATE daily_restaurant_report AS current
 LEFT JOIN daily_restaurant_report AS prev
   ON prev.date = DATE_SUB(current.date, INTERVAL 1 DAY)

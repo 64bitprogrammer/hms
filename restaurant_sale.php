@@ -28,6 +28,8 @@
                 <!-- Empty space will be here 
             </div> -->
 
+            <div class=" offset-md-3"></div>
+
             <div class="col-6 col-md-3 col-lg-3">
                 
                 <div class="form-floating mb-3 mt-3">
@@ -45,9 +47,6 @@
                     <div class="input-error" id="txt_cash_in_hand_subtext"></div>
                 </div>
             </div>
-
-            <div class=" offset-md-3"></div>
-            
 
             <div class="col-6 col-md-3 col-lg-3">
                 
@@ -127,6 +126,8 @@
                 </div>
 
             </div>
+
+            <div class=" offset-md-3"></div>
           
             <div class="col-6 col-md-3 col-lg-3">
                 
@@ -170,6 +171,16 @@
                 </div>
 
             </div>
+
+            <div class="col-6 col-md-3 col-lg-3">
+                
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txt_dues_received" required  value="0"  placeholder="" name="txt_dues_received"  oninput="formatCurrency(this)">
+                    <label for="txt_dues_received">Dues Received</label>
+                    <div class="input-error" id= "txt_dues_received_subtext"></div>
+                </div>
+
+            </div>
         </div>
 
         <div class="row">
@@ -183,6 +194,8 @@
                 </div>
 
             </div>
+
+            <div class=" offset-md-3"></div>
 
             <div class="col-6 col-md-4 col-lg-3">
                 
